@@ -10,9 +10,17 @@
 
 @implementation DX_AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    // Insert code here to initialize your application
+
+- (IBAction)nomostrar:(id)sender {
+    system("defaults write com.apple.finder AppleShowAllFiles false");
+    system("killall Finder");
 }
 
+- (IBAction)simostrar:(id)sender {
+    system("defaults write com.apple.finder AppleShowAllFiles true");
+    system("killall Finder");
+}
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
+}
 @end
